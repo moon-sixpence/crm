@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>学生评价</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/Appraise/base.css">
+    <link rel="stylesheet" href="css/Appraise/vendor.css">
+    <link rel="stylesheet" href="css/Appraise/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <script type="text/javascript">
+
+
+        function showDecode(){
+            $("#kk").toggle();//如果被选元素可见，则隐藏这些元素，如果被选元素隐藏，则显示这些元素。
+            if($("#divDecode").css("display")=="block"){//如果id为divDecode的元素的css样式的display=="block"
+
+                $("#btnShowDecode").val("隐藏详情");//修改按钮的名称为隐藏详情 }else{ $("#btnShowDecode").val("显示详情");//修改按钮的名称为显示详情
+
+            } }
+
+        function goaddindex() {
+                    window.location.href="Appraiseaddclasses";
+        }
+   //      function fixindex() {
+   // //         window.location.href="classindex";
+   //      }
+        function showData() {
+            
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a >
+                        <img src="img/logo.svg" alt="Homepage">
+                    </a>
+                </div>
+
+<!--                <div class="header__search">-->
+
+<!--                    <form role="search" method="get" class="header__search-form" action="#">-->
+<!--                        <label>-->
+<!--                            <span class="hide-content">Search for:</span>-->
+<!--                            <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">-->
+<!--                        </label>-->
+<!--                        <input type="submit" class="header__search-submit" value="Search">-->
+<!--                    </form>-->
+
+<!--                    <a href="#0" title="Close Search" class="header__search-close">Close</a>-->
+
+<!--                </div>  &lt;!&ndash; end header__search &ndash;&gt;-->
+
+                <!-- toggles -->
+<!--                <a href="#0" class="header__search-trigger"></a>-->
+<!--                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>-->
+
+            </div> <!-- end header__top -->
+
+<!--            <nav class="header__nav-wrap">-->
+<!--                <div style="border-style:solid;border-width:1px;height:270px; width:550px;display: block;"  id="divDecode">-->
+<!--                    <table width="100%" border="0" cellpadding="0"cellspacing="0">-->
+<!--                        <tr style="line-height: 35px;">-->
+<!--                            <td colspan="3"><span style="font-family: '微软雅黑';font-size: 15px;color: red;">VIN号：${vin}</span></td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
+<!--                </div>-->
+                <ul class="header__nav">
+                    <li class="current"><a title="">查询</a></li>
+                    <li class="has-children">
+                        <a href="#0" title="">班级</a>
+<!--                        <ul class="sub-menu">-->
+<!--                        <li><a href="category.html">Lifestyle</a></li>-->
+<!--                        <li><a href="category.html">Health</a></li>-->
+<!--                        <li><a href="category.html">Family</a></li>-->
+<!--                        <li><a href="category.html">Management</a></li>-->
+<!--                        <li><a href="category.html">Travel</a></li>-->
+<!--                        <li><a href="category.html">Work</a></li>-->
+<!--                        </ul>-->
+                    <li class="has-children">
+                        <a href="" title="" onclick="javascript:showDecode()">评价</a>
+                    </li>
+
+                    <li class="has-children">
+                        <a href="page-about.html" title="">学生</a>
+                    </li>
+<!--                    <li><a href="page-contact.html" title="">Contact</a></li>-->
+                </ul> <!-- end header__nav -->
+
+<!--                <ul class="header__social">-->
+<!--                    <li class="ss-facebook">-->
+<!--                        <a href="https://facebook.com/">-->
+<!--                            <span class="screen-reader-text">Facebook</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="ss-twitter">-->
+<!--                        <a href="#0">-->
+<!--                            <span class="screen-reader-text">Twitter</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="ss-dribbble">-->
+<!--                        <a href="#0">-->
+<!--                            <span class="screen-reader-text">Dribbble</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="ss-pinterest">-->
+<!--                        <a href="#0">-->
+<!--                            <span class="screen-reader-text">Behance</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+
+            </nav> <!-- end header__nav-wrap -->
+
+            
+
+        </header> <!-- end s-header -->
+
+        <div class="s-content" id="kk">
+
+                    <div class="grid-sizer"></div>
+
+                    <button onclick="goaddindex()">查询</button> <!-- end article -->
+
+
+
+
+                    </br>
+                    </br>
+                    <table id="tab" border="1">
+                            <tr>
+                                <th>课程id</th>
+                                <th>评价名称</th>
+                                <th>评价类型</th>
+                                <th>班级ID</th>
+                                <th>授课教师</th>
+                                <th>上课科目</th>
+                                <th>单项分数</th>
+                                <th>单项分数</th>
+                                <th>单项分数</th>
+                                <th>单项分数</th>
+                                <th>单项分数</th>
+                                <th>单项分数</th>
+                                <th>汇总分数</th>
+                            </tr>
+                            <tr th:each="dom1 : ${hh}">
+                                <td><div align="center"><input type="checkbox" name="id" value="1"></div></td>
+                                <td th:text="${dom1.id}"></td>
+                                <td th:text="${dom1.AppraiseName}"></td>
+                                <td th:text="${dom1.AppraiseType}"></td>
+                                <td th:text="${dom1.Classid}"></td>
+                                <td th:text="${dom1.Userid}"></td>
+                                <td th:text="${dom1.Courseid}"></td>
+                                <td th:text="${dom1.Score1}"></td>
+                                <td th:text="${dom1.Score2}"></td>
+                                <td th:text="${dom1.Score3}"></td>
+                                <td th:text="${dom1.Score4}"></td>
+                                <td th:text="${dom1.Score5}"></td>
+                                <td th:text="${dom1.Score6}"></td>
+                                <td th:text="${dom1.Score}"></td>
+                                </input>
+                            </tr>
+                    </table>
+        </div> <!-- end s-content -->
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+            </div>
+        </div>
+    </div>
+</body>

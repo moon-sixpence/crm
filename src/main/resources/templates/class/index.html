@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Course</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <script type="text/javascript">
+        function goaddindex() {
+                    window.location.href="addclasses";
+        }
+        function fixindex() {
+   //         window.location.href="classindex";
+        }
+        function showData() {
+            
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a >
+                        <img src="images/logo.svg" alt="Homepage">
+                    </a>
+                </div>
+
+<!--                <div class="header__search">-->
+
+<!--                    <form role="search" method="get" class="header__search-form" action="#">-->
+<!--                        <label>-->
+<!--                            <span class="hide-content">Search for:</span>-->
+<!--                            <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">-->
+<!--                        </label>-->
+<!--                        <input type="submit" class="header__search-submit" value="Search">-->
+<!--                    </form>-->
+
+<!--                    <a href="#0" title="Close Search" class="header__search-close">Close</a>-->
+
+<!--                </div>  &lt;!&ndash; end header__search &ndash;&gt;-->
+
+                <!-- toggles -->
+<!--                <a href="#0" class="header__search-trigger"></a>-->
+<!--                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>-->
+
+            </div> <!-- end header__top -->
+
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav">
+                    <li class="current"><a title="">查询</a></li>
+                    <li class="has-children">
+                        <a href="#0" title="">班级</a>
+<!--                        <ul class="sub-menu">-->
+<!--                        <li><a href="category.html">Lifestyle</a></li>-->
+<!--                        <li><a href="category.html">Health</a></li>-->
+<!--                        <li><a href="category.html">Family</a></li>-->
+<!--                        <li><a href="category.html">Management</a></li>-->
+<!--                        <li><a href="category.html">Travel</a></li>-->
+<!--                        <li><a href="category.html">Work</a></li>-->
+<!--                        </ul>-->
+                    <li class="has-children">
+                        <a href="styles.html" title="">评价</a>
+                    </li>
+
+                    <li class="has-children">
+                        <a href="page-about.html" title="">学生</a>
+                    </li>
+<!--                    <li><a href="page-contact.html" title="">Contact</a></li>-->
+                </ul> <!-- end header__nav -->
+
+<!--                <ul class="header__social">-->
+<!--                    <li class="ss-facebook">-->
+<!--                        <a href="https://facebook.com/">-->
+<!--                            <span class="screen-reader-text">Facebook</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="ss-twitter">-->
+<!--                        <a href="#0">-->
+<!--                            <span class="screen-reader-text">Twitter</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="ss-dribbble">-->
+<!--                        <a href="#0">-->
+<!--                            <span class="screen-reader-text">Dribbble</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="ss-pinterest">-->
+<!--                        <a href="#0">-->
+<!--                            <span class="screen-reader-text">Behance</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+
+            </nav> <!-- end header__nav-wrap -->
+
+            
+
+        </header> <!-- end s-header -->
+
+        <div class="s-content">
+
+                    <div class="grid-sizer"></div>
+
+                    <button onclick="goaddindex()">增加</button> <!-- end article -->
+
+                    <button >修改</button> <!-- end article -->
+
+                    <button >删除</button> <!-- end article -->
+                    </br>
+                    </br>
+                    <table id="tab">
+                            <tr>
+                                <td></td>
+                                <td>班级编号</td>
+                                <td>班级ID</td>
+                                <td>班级名称</td>
+
+                            </tr>
+                            <tr th:each="dom1 : ${hh}">
+                                <td><div align="center"><input type="checkbox" name="id" value="1"></div></td>
+                                <td th:text="${dom1.id}"></td>
+                                <td th:text="${dom1.classesid}"></td>
+                                <td th:text="${dom1.classesname}"></td>
+
+                                </input>
+                            </tr>
+                    </table>
+        </div> <!-- end s-content -->
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+            </div>
+        </div>
+    </div>
+</body>

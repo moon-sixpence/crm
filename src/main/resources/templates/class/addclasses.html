@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/bootstrap.css">
+    <script src="../../js/bootstrap.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        function goaddclasses(){
+
+            var classid=$("#classid");
+            var classname=$("#classname");
+            if (classid.val()==""){
+                alert("账号不能为空");
+            }
+            if (classname.val()==""){
+                alert("账号不能为空")
+            }
+            $.ajax({
+                type: "POST",
+                url: "addclasses",
+                data: $("#reform").serialize(),
+                success: function(msg){
+                    if(msg=="error"){
+                        alert("此账号已存在，请重新注册");
+                    }else{
+
+                        window.location.href="index";
+                    }
+                }
+            });
+
+        }
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="btn-group">
+                <button class="btn btn-default">Action</button> <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+
+            </div>
+            <form class="form-horizontal" role="form" id="reform">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">班级ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="classid" name="classId"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">班级名称</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="classname" name="className"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default" id="addcalsses" onclick="goaddclasses()" >添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

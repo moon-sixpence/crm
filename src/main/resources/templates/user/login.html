@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Form by Tooplate</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <link rel="stylesheet" href="../../css/user/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/user/materialize.min.css">
+    <link rel="stylesheet" href="../../css/user/tooplate.css">
+    <script src="../../js/user/jquery-3.2.1.min.js"></script>
+    <script src="../../js/user/materialize.min.js"></script>
+    <script type="text/javascript">
+        function login() {
+            $("input[name='role']:checked").val();
+            $('input:radio:checked').val();
+            var role=$("input[name='role']:checked").val();
+
+            var userid=$("#userid");
+            var username=$("#username");
+            var password=$("#password");
+            if(userid.val() ==""){
+                alert("账号不能为空")
+                return;
+            }
+            if(username.val() ==""){
+                alert("用户名不能为空")
+                return;
+            }
+            if(password.val() ==""){
+                alert("密码不能为空")
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "loginmgr",
+                data: $("#reform").serialize(),
+                success: function(msg){
+                    if(msg=="error"){
+                        alert("账号或密码错误！！！");
+                    }else{
+                        alert("登录成功");
+                         window.location.href="register";
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+
+<body id="login">
+    <div class="container">
+        <div class="row tm-register-row tm-mb-35">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-l">
+                <form  method="post" class="tm-bg-black p-5 h-100" name="reform" id="reform">
+                    <div class="mb-2">
+                        <label class="mr-4">
+                            <input class="with-gap" name="role" type="radio" value="管理员" />
+                            <span>管理员</span>
+                        </label>
+                        <label class="mr-4">
+                            <input class="with-gap" name="role" type="radio" value="教师" />
+                            <span>教师</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" name="role" type="radio" value="学生" checked/>
+                            <span>学生</span>
+                        </label>
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="Userid" id="userid" name="userId" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="Username" id="username" name="userName" type="text" class="validate">
+                    </div>
+                    <div class="input-field mb-5">
+                        <input placeholder="Password" id="password" name="password" type="password" class="validate">
+                    </div>
+                    <div class="tm-flex-lr">
+                        <a href="#" class="white-text small">Forgot Password?</a>
+                        <button type="button" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0" onclick="login()">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-r">
+                <header class="font-weight-light tm-bg-black p-5 h-100">
+                    <h3 class="mt-0 text-white font-weight-light">Your Login</h3>
+                    <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                    <p class="mb-0">Vestibulum neque neque, porttitor quis lacinia eu, iaculis id dui. Mauris quis velit lectus.</p>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ml-auto mr-0 text-center">
+                <a href="register" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">创建新用户</a>
+            </div>
+        </div>
+        <footer class="row tm-mt-big mb-3">
+            <div class="col-xl-12 text-center">
+                <p class="d-inline-block tm-bg-black white-text py-2 tm-px-5">
+                    Copyright &copy; 2019 college Name
+                    - Design:  crm group<a >交通职业技术学院</a></p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
