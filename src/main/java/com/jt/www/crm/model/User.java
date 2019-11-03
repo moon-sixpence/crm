@@ -6,11 +6,12 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
 @Data
 @GenericGenerator(name ="jpa-uuid",strategy = "uuid")
-public class User {
+public class User  implements Serializable {
     @Id
     @GeneratedValue(generator = "jpa-uuid")
     private String id;               //用于确定用户唯一性，采用时间生成的随机UUID

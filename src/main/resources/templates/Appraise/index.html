@@ -12,12 +12,19 @@
     <!-- mobile specific metas
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!-- Java Script
+       ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>>
+    <script type="text/javascript" src="js/course/bootstrap-table.js"></script>
+    <script type="text/javascript" src="js/course/bootstrap.min.js"></script>
     <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="css/Appraise/base.css">
     <link rel="stylesheet" href="css/Appraise/vendor.css">
     <link rel="stylesheet" href="css/Appraise/main.css">
+    <link rel="stylesheet" href="css/course/bootstrap-combined.min.css" type="text/css"></link>
 
     <!-- script
     ================================================== -->
@@ -29,6 +36,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+
 
     <script type="text/javascript">
 
@@ -42,7 +50,7 @@
             } }
 
         function goaddindex() {
-                    window.location.href="Appraiseaddclasses";
+                    window.location.href="";
         }
    //      function fixindex() {
    // //         window.location.href="classindex";
@@ -164,13 +172,28 @@
 
                     <button onclick="goaddindex()">查询</button> <!-- end article -->
 
-
-
-
                     </br>
                     </br>
-                    <table id="tab" border="1">
-                            <tr>
+                    <table id="realTime_Table" class="table table-bordered" data-page-size="20">
+                        <thead>
+                        <tr>
+                            <th data-sortable="true" data-field="id">课程id</th>
+                            <th data-sortable="true" data-field="appraiseName">评价名称</th>
+                            <th data-sortable="true" data-field="appraiseType">评价类型</th>
+                            <th data-sortable="true" data-field="classid">班级ID </th>
+                            <th data-sortable="true" data-field="teacherName">授课教师 </th>
+                            <th data-sortable="true" data-field="courseName">上课科目</th>
+                            <th data-sortable="true" data-field="score1">单项分数</th>
+                            <th data-sortable="true" data-field="score2">单项分数</th>
+                            <th data-sortable="true" data-field="score3">单项分数</th>
+                            <th data-sortable="true" data-field="score4">单项分数</th>
+                            <th data-sortable="true" data-field="score5">单项分数</th>
+                            <th data-sortable="true" data-field="score6">单项分数</th>
+                            <th data-sortable="true" data-field="score">汇总分数</th>
+
+                        </tr>
+                        </thead>
+                            <!--<tr>
                                 <th>课程id</th>
                                 <th>评价名称</th>
                                 <th>评价类型</th>
@@ -184,32 +207,43 @@
                                 <th>单项分数</th>
                                 <th>单项分数</th>
                                 <th>汇总分数</th>
-                            </tr>
-                            <tr th:each="dom1 : ${hh}">
-                                <td><div align="center"><input type="checkbox" name="id" value="1"></div></td>
-                                <td th:text="${dom1.id}"></td>
-                                <td th:text="${dom1.AppraiseName}"></td>
-                                <td th:text="${dom1.AppraiseType}"></td>
-                                <td th:text="${dom1.Classid}"></td>
-                                <td th:text="${dom1.Userid}"></td>
-                                <td th:text="${dom1.Courseid}"></td>
-                                <td th:text="${dom1.Score1}"></td>
-                                <td th:text="${dom1.Score2}"></td>
-                                <td th:text="${dom1.Score3}"></td>
-                                <td th:text="${dom1.Score4}"></td>
-                                <td th:text="${dom1.Score5}"></td>
-                                <td th:text="${dom1.Score6}"></td>
-                                <td th:text="${dom1.Score}"></td>
-                                </input>
-                            </tr>
+                            </tr>-->
+
                     </table>
         </div> <!-- end s-content -->
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+
+        $("#realTime_Table").bootstrapTable( {
+            search : false,
+            pagination : true,
+            pageSize : 10,
+            pageList : [ 5, 10, 20, 50 ],
+            showColumns : true,
+            showRefresh : false,
+            showToggle : false  ,
+            locale : "zh-CN",
+            striped : true,
+            onDblClickRow: function (row) {
+                console.log(row);
+            }
+        });
+        $(function() {
+            $.ajax({
+                type: "GET",
+                url: "/appraise/list",//?userid=id
+                dataType: "json",
+                success: function (msg) {
+                    $("#realTime_Table").bootstrapTable('load', msg.content);
+                },
+                error: function () {
+                    alert("错误");
+                }
+            });
+        });
+    </script>
 </body>

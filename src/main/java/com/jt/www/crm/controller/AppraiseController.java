@@ -10,6 +10,7 @@ import com.jt.www.crm.service.ClassesService;
 import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,10 +24,9 @@ import java.util.List;
 
 
 @Controller
-@SpringBootApplication
 public class AppraiseController {
 @Resource
-    public AppraiseService Service;
+    public AppraiseService appraiseService;
 @Resource
 private ClassesService classesService;
 
@@ -48,8 +48,13 @@ private ClassesService classesService;
         return ja;
     }
 
-    @PostMapping(value = "/list")
-    public  Object list() {
-
+    /**
+     *  查询课堂评价列表
+     * @return
+     */
+    @RequestMapping(value = "/appraise/list")
+    @ResponseBody
+    public  Object list(Integer page, Integer pageSize) {
+      return appraiseService.getAppraiseByPage(page,pageSize);
     }
 }

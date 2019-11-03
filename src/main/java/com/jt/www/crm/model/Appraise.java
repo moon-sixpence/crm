@@ -1,12 +1,19 @@
 package com.jt.www.crm.model;
 
 import lombok.Data;
+import org.apache.commons.lang.StringUtils;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+import static javax.persistence.ConstraintMode.CONSTRAINT;
+import static javax.persistence.ConstraintMode.NO_CONSTRAINT;
+
 @Entity
 @Data
-public class Appraise {
+public class Appraise  implements Serializable {
     @Id
     private String Id;//用于课程的唯一性，采用时间生成的随机UUId
     private String AppraiseName;//评价名称
@@ -21,6 +28,25 @@ public class Appraise {
     private String Score5;//单项分数
     private String Score6;//单项分数
     private String Score;//评价汇总分数
+
+    private String teacherName; // 教师姓名
+
+    private String courseName; // 上课科目
+
+
+    // 关联教师用户信息
+    @OneToOne
+    @JoinColumn(name="userid",referencedColumnName ="userId",insertable = false, updatable = false,foreignKey =@ForeignKey(NO_CONSTRAINT) )
+    private User user;
+    @OneToOne
+    @JoinColumn(name="classid",referencedColumnName="id", insertable = false, updatable = false,foreignKey =@ForeignKey(NO_CONSTRAINT) )
+    private Classes classes;
+
+
+    @OneToOne
+    @JoinColumn(name="courseid",insertable = false, updatable = false,foreignKey =@ForeignKey(NO_CONSTRAINT) )
+    private Course course;
+
     @Override
     public String toString() {
         return "Appraise{" +
@@ -39,6 +65,23 @@ public class Appraise {
                 ", Score='" + Score + '\'' +
                 '}';
     }
+    public String getTeacherName() {
+        if (StringUtils.isNotBlank(teacherName)) {
+            return teacherName;
+        }
+        if (Objects.nonNull(user)) {
+            return  user.getUserName();
+        }
+        return teacherName;
+    }
 
-
+    public String getCourseName() {
+        if (StringUtils.isNotBlank(courseName)) {
+            return teacherName;
+        }
+        if (Objects.nonNull(course)) {
+            return  course.getCourseName();
+        }
+        return courseName;
+    }
 }
