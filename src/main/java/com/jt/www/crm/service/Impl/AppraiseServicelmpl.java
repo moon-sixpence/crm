@@ -4,7 +4,6 @@ import com.jt.www.crm.dao.AppraiseDao;
 import com.jt.www.crm.dao.ClassesDao;
 import com.jt.www.crm.model.Appraise;
 import com.jt.www.crm.service.AppraiseService;
-import com.sun.tools.javac.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

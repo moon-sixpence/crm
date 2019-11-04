@@ -174,7 +174,7 @@
 
                     </br>
                     </br>
-                    <table id="realTime_Table" class="table table-bordered" data-page-size="20">
+                    <table id="realTime_Table"  style="table-layout:fixed;" class="table table-bordered" data-page-size="20">
                         <thead>
                         <tr>
                             <th data-sortable="true" data-field="id">课程id</th>
@@ -219,7 +219,7 @@
     <script type="text/javascript">
 
         $("#realTime_Table").bootstrapTable( {
-            search : false,
+            search : true,
             pagination : true,
             pageSize : 10,
             pageList : [ 5, 10, 20, 50 ],

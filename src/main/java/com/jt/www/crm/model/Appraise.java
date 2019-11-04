@@ -33,6 +33,7 @@ public class Appraise  implements Serializable {
 
     private String courseName; // 上课科目
 
+    private String className; // 班级名称
 
     // 关联教师用户信息
     @OneToOne
@@ -47,24 +48,18 @@ public class Appraise  implements Serializable {
     @JoinColumn(name="courseid",insertable = false, updatable = false,foreignKey =@ForeignKey(NO_CONSTRAINT) )
     private Course course;
 
-    @Override
-    public String toString() {
-        return "Appraise{" +
-                "Id='" + Id + '\'' +
-                ", AppraiseName='" + AppraiseName + '\'' +
-                ", AppraiseType='" + AppraiseType + '\'' +
-                ", Classid='" + Classid + '\'' +
-                ", Userid='" + Userid + '\'' +
-                ", Courseid='" + Courseid + '\'' +
-                ", Score1='" + Score1 + '\'' +
-                ", Score2='" + Score2 + '\'' +
-                ", Score3='" + Score3 + '\'' +
-                ", Score4='" + Score4 + '\'' +
-                ", Score5='" + Score5 + '\'' +
-                ", Score6='" + Score6 + '\'' +
-                ", Score='" + Score + '\'' +
-                '}';
+
+    public String getClassName() {
+        if ( StringUtils.isNotBlank(className)){
+            return  className;
+
+        }
+        if (Objects.nonNull(classes)) {
+            return  classes.getClassName();
+        }
+        return  className;
     }
+
     public String getTeacherName() {
         if (StringUtils.isNotBlank(teacherName)) {
             return teacherName;
@@ -77,7 +72,7 @@ public class Appraise  implements Serializable {
 
     public String getCourseName() {
         if (StringUtils.isNotBlank(courseName)) {
-            return teacherName;
+            return courseName;
         }
         if (Objects.nonNull(course)) {
             return  course.getCourseName();

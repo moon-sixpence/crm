@@ -3,7 +3,6 @@ package com.jt.www.crm.service;
 
 import com.jt.www.crm.dao.ClassesDao;
 import com.jt.www.crm.model.Appraise;
-import com.sun.tools.javac.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
